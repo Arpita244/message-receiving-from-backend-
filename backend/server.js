@@ -5,6 +5,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
+
+app.get('/',(req,res)=>{
+res.send("welcome")
+})
 app.post("/submit",(req,res)=>{
     const { name, age, gender, hobbies, contact, message } = req.body;
     console.log("Received form data: ",{name, age, gender, hobbies, contact, message});
