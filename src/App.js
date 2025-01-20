@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './App.css'; 
 function App() {
   const [formData, setFormData] = useState({
@@ -11,17 +12,32 @@ function App() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [hopefulMessage, setHopefulMessage] = useState('');
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {  // Mark the function as async
     e.preventDefault();
     console.log('Form Data:', formData);
-    setSubmitted(true);
+  
+    try {
+      // Sending data to the backend
+      const response = await axios.post('http://localhost:5000/submit', formData);
+  
+      const data = await response.data;
+  
+      // Setting the hopeful message from the backend
+      setHopefulMessage(data.hopefulMessage);
+      setSubmitted(true);
+    } catch (error) {
+      console.error('Error connecting to backend:', error);
+    }
   };
+  
 
   const handleReset = () => {
     setFormData({
