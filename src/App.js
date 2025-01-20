@@ -26,7 +26,7 @@ function App() {
   
     try {
       // Sending data to the backend
-      const response = await axios.post('https://message-receiving-from-backend-1wtq.vercel.app', formData);
+      const response = await axios.post('https://message-receiving-from-backend-1wtq.vercel.app/submit', formData);
   
       const data = await response.data;
   
