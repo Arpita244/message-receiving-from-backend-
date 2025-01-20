@@ -139,16 +139,8 @@ function App() {
 
       {submitted && (
         <div className="form-submission">
-          <h2>Thank you for submitting your details!</h2>
-          <p>We have received the following information:</p>
-          <ul>
-            <li><strong>Name:</strong> {formData.name}</li>
-            <li><strong>Age:</strong> {formData.age}</li>
-            <li><strong>Gender:</strong> {formData.gender}</li>
-            <li><strong>Hobbies:</strong> {formData.hobbies}</li>
-            <li><strong>Contact Number:</strong> {formData.contact}</li>
-            <li><strong>Message:</strong> {formData.message}</li>
-          </ul>
+          
+          <h2>{hopefulMessage}</h2>
         </div>
       )}
     </div>

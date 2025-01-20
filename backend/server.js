@@ -16,6 +16,7 @@ app.post("/submit",(req,res)=>{
    people like you.`;
 
   res.status(200).json({ hopefulMessage });
+  console.log(hopefulMessage);
 });
 
 const PORT = 5000;
