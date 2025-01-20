@@ -19,7 +19,7 @@ app.post("/submit",(req,res)=>{
   console.log(hopefulMessage);
 });
 
-const PORT = 5000;
+const PORT = 5000 || process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
